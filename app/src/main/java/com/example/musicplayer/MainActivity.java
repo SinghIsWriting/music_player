@@ -39,7 +39,7 @@ class MainActivity extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(progressDialog::dismiss, 5000);
 
-        listView.findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
         Dexter.withContext(this)
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
@@ -54,15 +54,14 @@ class MainActivity extends AppCompatActivity {
 
                         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this , android.R.layout.simple_list_item_1 , items);
                         listView.setAdapter(adapter);
-//                        listView.setOnItemClickListener((parent, view, position, id) -> {
-//                            Intent intent = new Intent(MainActivity.this , PlaySong.class);
-//                            String currentSong = String.valueOf(listView.getItemIdAtPosition(position));
-//                            intent.putExtra("songList" , mySongs);
-//                            intent.putExtra("currentSong" , currentSong);
-//                            intent.putExtra("position" , position);
-//                            startActivity(intent);
-//                        });
-
+                        listView.setOnItemClickListener((parent, view, position, id) -> {
+                            Intent intent = new Intent(MainActivity.this , PlaySong.class);
+                            String currentSong = String.valueOf(listView.getItemIdAtPosition(position));
+                            intent.putExtra("songList" , mySongs);
+                            intent.putExtra("currentSong" , currentSong);
+                            intent.putExtra("position" , position);
+                            startActivity(intent);
+                        });
                     }
 
                     @Override
