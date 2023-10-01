@@ -15,6 +15,9 @@ The Music Player Android app is a simple yet powerful application designed to al
 
 ## Installation
 1. Clone or download the repository to your local machine.
+```
+git clone https://github.com/SinghIsWriting/music_player.git
+```
 2. Open the project in Android Studio.
 3. Build and run the app on an Android emulator or physical Android device.
 
